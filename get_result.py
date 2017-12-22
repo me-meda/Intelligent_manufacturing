@@ -68,6 +68,8 @@ print('Uliti_length_train:',trainData_x.shape[1])
 '''处理测试数据'''
 print('-'*30)
 print('orginal_length_test:',testData_x.shape[1])
+
+'''获取数值属性进行尺度调整'''
 testData_x = testData_x.drop(dropList,axis = 1)
 train_scal_x = pd.DataFrame(trainData_x.drop(catList,axis = 1))
 scalList = train_scal_x.columns.tolist()
@@ -87,7 +89,7 @@ for i in catList:
        for j in CatList:
             if j == CatList[k]:
                 testData_x.loc[testData_x.loc[:,i] == j,i] = k
-'''获取数值属性进行尺度调整'''
+
 trainData_x = pd.DataFrame(trainData_x)
 testData_x = pd.DataFrame(testData_x)
 
